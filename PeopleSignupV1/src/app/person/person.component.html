@@ -1,0 +1,92 @@
+<div *ngIf="!signedIn" class="jumbotron ">
+ <p class="lead">
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#SignInModal">
+ Sign In
+</button>
+  </p>
+</div>
+
+<div class="container" *ngIf="signedIn" [style.padding]="'1em'">
+  <h1 [style.color]="'#ADD8E6'"> Your Information </h1>
+  <hr class="my-2"/>
+  <div class="row">
+
+    <form #currentUserForm="ngForm" (ngSubmit)="editSubmit(person)">
+
+      <div class="form-group">
+        <label for="Bio">Bio:</label>
+        <input type="text" id="Bio" name="Bio" 
+         [(ngModel)]="person.Bio" class="form-control" required/>
+      </div>
+
+      <div class="form-group">
+        <label for="FirstName">First Name:</label>
+        <input type="text" id="FirstName" name="FirstName"
+         [(ngModel)]="person.FirstName" class="form-control" required/>
+      </div>
+
+      <div class="form-group">
+        <label for="LastName">Last Name:</label>
+        <input type="text" id="LastName" name="LastName" 
+         [(ngModel)]="person.LastName" class="form-control" required/>
+      </div>
+
+      <div class="form-group">
+        <label for="EmailAddress">Email Address:</label>
+        <input type="text" id="EmailAddress" name="EmailAddress"
+         [(ngModel)]="person.EmailAddress" class="form-control" required/>
+      </div>
+
+      <div class="form-group">
+        <label for="HourlyRat?">Hourly Rate:</label>
+        <input type="number" id="HourlyRate" name="HourlyRate"
+         [(ngModel)]="person.HourlyRate" class="form-control" required/>
+      </div>
+
+      <button type="submit" class="btn btn-primary"> Update</button>
+
+    </form>      
+      
+
+  </div>
+</div>
+
+
+
+
+<!-- Sign in Modal -->
+<div class="modal fade" id="SignInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Sign In Please</h4>
+      </div>
+      <div class="modal-body">
+          Email Address:  <input type="email" #userEmail/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="checkUser(userEmail.value)" data-dismiss="modal">Log In</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Update Modal -->
+
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel" [style.background]="green">User Updated Successfully</h4>
+      </div>
+
+    </div>
+  </div>
+</div>

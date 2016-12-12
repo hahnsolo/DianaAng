@@ -1,0 +1,24 @@
+<!-- Navbar Header Bootstrap4 collasble, colour coated -->
+<nav class="navbar navbar-full navbar-light" style="background-color:	#ADD8E6; font-color:#FFB6C1">
+  <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+  <div class="collapse navbar-toggleable-md" id="navbarResponsive">
+     <a class="navbar-brand" routerLink="/">TE</a>
+     <ul class="nav navbar-nav m-x-auto">
+        <li class="nav-item active">
+           <a class="nav-link"routerLink="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+           <a class="nav-link" routerLink="./people">MyAccount</a>
+        </li>
+        <li class="nav-item">
+           <a class="nav-link" routerLink="./consultants">MyPeople</a>
+        </li>
+     </ul>
+   
+  </div>
+</nav>
+
+ 
+
+
+<router-outlet></router-outlet>
